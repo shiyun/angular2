@@ -11,7 +11,7 @@ System.register(['angular2/core', 'angular2/router', './hero', './hero.service']
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1, router_1, hero_1, hero_service_1;
-    var HeroDetail;
+    var HeroDetailThree;
     return {
         setters:[
             function (core_1_1) {
@@ -27,42 +27,35 @@ System.register(['angular2/core', 'angular2/router', './hero', './hero.service']
                 hero_service_1 = hero_service_1_1;
             }],
         execute: function() {
-            HeroDetail = (function () {
-                function HeroDetail(_heroService, _routeParams, _router) {
+            HeroDetailThree = (function () {
+                function HeroDetailThree(_heroService, _routeParams) {
                     this._heroService = _heroService;
                     this._routeParams = _routeParams;
-                    this._router = _router;
                 }
-                HeroDetail.prototype.ngOnInit = function () {
+                HeroDetailThree.prototype.ngOnInit = function () {
                     var _this = this;
                     var id = +this._routeParams.get('id');
-                    this._heroService.getHero(id).then(function (hero) { _this.hero = hero; _this.pro = hero.product; });
+                    var sid = +this._routeParams.get('sid');
+                    this._heroService.getPro(id, sid).then(function (prod) { return _this.prod = prod; });
                 };
-                HeroDetail.prototype.gotoThree = function (id, pro) {
-                    console.log(id);
-                    console.log(pro);
-                    var link = ['HeroDetailThree', { id: id, sid: pro.id }];
-                    this._router.navigate(link);
-                };
-                HeroDetail.prototype.goback = function () {
+                HeroDetailThree.prototype.goback = function () {
                     window.history.go(-1);
                 };
                 __decorate([
                     core_1.Input(), 
                     __metadata('design:type', hero_1.Hero)
-                ], HeroDetail.prototype, "hero", void 0);
-                HeroDetail = __decorate([
+                ], HeroDetailThree.prototype, "prod", void 0);
+                HeroDetailThree = __decorate([
                     core_1.Component({
                         selector: 'my-hero-detail',
-                        template: "\n    <div *ngIf=\"hero\">\n      <h2>name: {{hero.name}} !</h2>\n      <div><label>id: </label>{{hero.id}}</div>\n      <div>\n        <label>name: </label>\n        <input [(ngModel)]=\"hero.name\" placeholder=\"name\"/>\n      </div>\n      <ul class=\"list-three\">\n        <li *ngFor=\"#prod of pro\" (click)=\"gotoThree(hero.id,prod)\">{{prod.id}}-{{prod.name}}</li>\n      </ul>\n    </div>\n    <button (click)=\"goback()\">\u8FD4\u56DE</button>\n  ",
-                        styles: ["\n    .list-three li{background-color:rgba(255,0,0,1);color:#fff;transition: all .3s linear;float:left;margin-right:20px;padding:10px 30px;}\n    .list-three li:hover{background-color:rgba(255,0,0,.5);}\n  "]
+                        template: "\n    <div *ngIf=\"prod\">\n      <h2>name: {{prod.name}} !</h2>\n      <div><label>id: </label>{{prod.id}}</div>\n      <div>\n        <label>name: </label>\n        <input [(ngModel)]=\"prod.name\" placeholder=\"name\"/>\n      </div>\n    </div>\n    <button (click)=\"goback()\">\u8FD4\u56DE</button>\n  "
                     }), 
-                    __metadata('design:paramtypes', [hero_service_1.HeroService, router_1.RouteParams, router_1.Router])
-                ], HeroDetail);
-                return HeroDetail;
+                    __metadata('design:paramtypes', [hero_service_1.HeroService, router_1.RouteParams])
+                ], HeroDetailThree);
+                return HeroDetailThree;
             }());
-            exports_1("HeroDetail", HeroDetail);
+            exports_1("HeroDetailThree", HeroDetailThree);
         }
     }
 });
-//# sourceMappingURL=hero-detail.component.js.map
+//# sourceMappingURL=heroThree.component.js.map
