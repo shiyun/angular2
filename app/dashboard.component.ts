@@ -4,7 +4,7 @@ import {Hero} from './hero';
 import {HeroService} from './hero.service';
 
 @Component({
-    selector: 'my-dashboard'
+    selector: 'my-dashboard',
     template: `
         <h2>{{title}}</h2>
         <ul class="list-top">
