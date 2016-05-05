@@ -17,11 +17,7 @@ const PATHS = {
         html: '../dist/**/*.html'
     },
     libs: [
-<<<<<<< HEAD
-		/*
-=======
->>>>>>> refs/remotes/origin/master
-        '../node_modules/es6-shim/es6-shim.min.js',
+		'../node_modules/es6-shim/es6-shim.min.js',
         '../node_modules/systemjs/dist/system-polyfills.js',
         '../node_modules/angular2/es6/dev/src/testing/shims_for_IE.js',
         '../node_modules/angular2/bundles/angular2-polyfills.js',
@@ -29,21 +25,8 @@ const PATHS = {
         '../node_modules/typescript/lib/typescript.js',
         '../node_modules/rxjs/bundles/Rx.js',
         '../node_modules/angular2/bundles/angular2.dev.js',
-<<<<<<< HEAD
         '../node_modules/angular2/bundles/router.dev.js',
-        '../node_modules/zone.js/dist/zone.min.js'
-		*/
-		'node_modules/angular2/bundles/js',
-		'node_modules/angular2/bundles/angular2.*.js*',
-		'node_modules/angular2/bundles/angular2-polyfills.js',
-		'node_modules/angular2/bundles/http.*.js*',
-		'node_modules/angular2/bundles/router.*.js*',
-		'node_modules/es6-shim/es6-shim.min.js*',
-		'node_modules/angular2/es6/dev/src/testing/shims_for_IE.js',
-		'node_modules/systemjs/dist/*.*',
-		'node_modules/jquery/dist/jquery.*js',
-		'node_modules/bootstrap/dist/js/bootstrap*.js',
-		'node_modules/rxjs/bundles/Rx.js'
+        '../node_modules/zone.js/dist/zone.min.js'		
     ]
 };
 
@@ -52,22 +35,6 @@ gulp.task('move', ()=>{
 	gulp.src(PATHS.libs)		
 		.pipe(gulp.dest('../public/js'))
 });
-
-//压缩libs
-gulp.task('libs', ['move'], ()=>{
-	gulp.src('../dist/move/*.js')
-		.pipe(uglify())
-		.pipe(size({
-			showFiles: true,
-			showTotal: true,
-			gzip: true
-		}))		
-		.pipe(concat('libs.js'))
-		.pipe(rename({suffix: '.min'}))
-=======
-        '../node_modules/angular2/bundles/router.dev.js'
-    ]
-};
 
 //压缩libs
 gulp.task('libs', ()=>{
@@ -79,7 +46,6 @@ gulp.task('libs', ()=>{
 		.pipe(concat('libs.js'))
 		.pipe(rename({suffix: '.min'}))
 		//.pipe(uglify())
->>>>>>> refs/remotes/origin/master
 		.pipe(gulp.dest('../dist/libs'))
 });
 
@@ -100,13 +66,10 @@ gulp.task('clean', function(cb){
 	del(['../dist/**/*.*'], cb);
 });
 
-<<<<<<< HEAD
-
 // 默认任务
 gulp.task('default', function(){
 	gulp.run('clean', 'move');
-=======
-gulp.task('connect', function() {
+	gulp.task('connect', function() {
     connect.server({
         root: __dirname + '/dist',
         port: port,
@@ -137,7 +100,7 @@ gulp.task('live', function(){
 // 默认任务
 gulp.task('default', function(){
 	gulp.run('clean', 'libs');
->>>>>>> refs/remotes/origin/master
+
 //    gulp.watch('../src/**/*.*', function(){
 //        gulp.run('libs', 'util', 'comps', 'less', 'images');
 //    });
