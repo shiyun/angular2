@@ -1,0 +1,19 @@
+.header-login {background:#6796E4;height: .8rem;line-height: .8rem;text-align: center;color:#fff;font-size:32px;font-size:.32rem;}
+.login-from {margin:.25rem 0;}
+.list-login {background-color: #fff;border-top: 0.01rem solid #E4E4E4;}
+.list-login li {border-bottom: .04rem solid #e4e4e4;position: relative;}
+.inp-phone {height:.8rem;width:100%;border:none;box-sizing:border-box;font-size:.28rem;color: #333;padding: 0 .2rem;}
+.btn-getVeriCode {position: absolute;right:.1rem;top:50%;transform:translateY(-50%);background-color: #ffac00;border-radius: .08rem;padding:0 .3rem;color:#fff;border:none;height:.6rem;}
+.mlr10 {margin: .2rem .2rem 0;font-size:.24rem;color: #666;}
+.btn-begin {
+    background: #6796e4;
+    color: #fff;
+    border: 0;
+    border-radius: 3px;
+    width: 100%;
+    height: .8rem;
+    line-height: .8rem;
+    font-size: .30rem;
+    border: none;
+}
+.inp-check {vertical-align: middle;margin-right: .05rem;}

@@ -1,0 +1,10 @@
+.pb120 {padding-bottom:1.2rem;}
+.list-proIndex {
+	display:flex;display:-webkit-flex;flex-flow:row wrap;margin-bottom:.17rem;align-items:stretch;
+}
+.list-proIndex li {
+	box-sizing:border-box;border-left:1px solid #D1D1D1;border-bottom:1px solid #D1D1D1;box-flex:1;width:50%;background-color:#fff;
+}
+.list-proIndex li:nth-child(odd){
+	border-left:none;
+}

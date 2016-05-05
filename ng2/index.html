@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <base href="/">
+    <title><%=title%></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+	<meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="/styles.css">
+	<!-- 
+	<link rel="stylesheet" href="/node_modules/ng2-material/dist/ng2-material.css">
+	<link rel="stylesheet" href="/node_modules/ng2-material/dist/font.css">
+	 -->
+	<script>
+		(function(doc, win) {
+			var docEl = doc.documentElement,
+			isIOS = navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+			dpr = isIOS ? Math.min(win.devicePixelRatio, 3) : 1,
+			dpr = window.top === window.self ? dpr : 1, //被iframe引用时，禁止缩放
+			resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+			docEl.dataset.dpr = dpr;
+			var recalc = function() {
+				var width = docEl.clientWidth;
+				if (width / dpr > 640) {
+					width = 640 * dpr;
+				}
+				docEl.dataset.width = width
+				docEl.dataset.percent = 100 * (width / 640);
+				docEl.style.fontSize = 100 * (width / 640) + 'px';
+			};
+			recalc()
+			if (!doc.addEventListener) return;
+			win.addEventListener(resizeEvt, recalc, false);
+		})(document, window);		
+	</script>
+    <!-- 1. Load libraries -->
+    <!-- IE required polyfills, in this exact order -->
+    <script src="/node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="/node_modules/systemjs/dist/system-polyfills.js"></script>
+    <script src="/node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>   
+    <script src="/node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="/node_modules/systemjs/dist/system.src.js"></script>
+    <script src="/node_modules/typescript/lib/typescript.js"></script>
+    <script src="/node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="/node_modules/angular2/bundles/angular2.dev.js"></script>
+    <script src="/node_modules/angular2/bundles/router.dev.js"></script>
+    <script src="/node_modules/angular2/bundles/http.dev.js"></script>
+    <script src="/node_modules/ng2-material/dist/ng2-material.min.js"></script>
+    
+    <!-- 2. Configure SystemJS -->
+    <script>
+	  System.config({
+        transpiler: 'typescript', 
+        typescriptOptions: { emitDecoratorMetadata: true }, 
+        packages: {        
+          app: {
+            //format: 'register',
+            defaultExtension: 'ts'
+          }
+        }
+      });
+      System.import('app/main')
+            .then(null, console.error.bind(console));
+    </script>
+  </head>
+  <!-- 3. Display the application -->
+  <body>
+    <my-app>Loading...</my-app>
+  </body>
+</html>

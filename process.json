@@ -1,0 +1,9 @@
+{
+	"apps": [{
+		"name": "koa-demo",
+		"script": "app.js",
+		"node_args": "–harmony config.release.js",
+		"watch": true,
+		"log_date_format": "YYYY - MM - DD HH: mm Z",
+	}]
+}
