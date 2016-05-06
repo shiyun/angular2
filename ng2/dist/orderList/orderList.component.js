@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../footerDown/footerDown.component'], function(exports_1, context_1) {
+System.register(['angular2/core', '../footerDown/footerDown.component', './orderList.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,8 +10,16 @@ System.register(['angular2/core', '../footerDown/footerDown.component'], functio
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, footerDown_component_1;
-    var OrderListComponent;
+    var core_1, footerDown_component_1, orderList_service_1;
+    var OrderListComponent, meow_iter;
+    function quips(name) {
+        yield "hello " + name + "!";
+        yield "i hope you are enjoying the blog posts";
+        if (name.toLowerCase().startsWith("x")) {
+            yield "hey, it's cool how your name starts with an X, " + name;
+        }
+        yield "see you later!";
+    }
     return {
         setters:[
             function (core_1_1) {
@@ -19,31 +27,29 @@ System.register(['angular2/core', '../footerDown/footerDown.component'], functio
             },
             function (footerDown_component_1_1) {
                 footerDown_component_1 = footerDown_component_1_1;
+            },
+            function (orderList_service_1_1) {
+                orderList_service_1 = orderList_service_1_1;
             }],
         execute: function() {
             OrderListComponent = (function () {
-                function OrderListComponent() {
-                    var _this = this;
-                    this.updateTitle = new core_1.EventEmitter();
-                    this.title = '首页2';
-                    setTimeout(function () { return _this.updateTitle.emit(_this.title); }, 100);
+                function OrderListComponent(_orderService) {
+                    this._orderService = _orderService;
                 }
-                __decorate([
-                    core_1.Output(), 
-                    __metadata('design:type', core_1.EventEmitter)
-                ], OrderListComponent.prototype, "updateTitle", void 0);
                 OrderListComponent = __decorate([
                     core_1.Component({
                         selector: 'orderList',
                         templateUrl: 'app/orderList/orderList.html',
                         styleUrls: ['app/orderList/orderList.css'],
-                        directives: [footerDown_component_1.FooterDownComponent]
+                        directives: [footerDown_component_1.FooterDownComponent],
+                        providers: [orderList_service_1.OrderListService]
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [orderList_service_1.OrderListService])
                 ], OrderListComponent);
                 return OrderListComponent;
             }());
             exports_1("OrderListComponent", OrderListComponent);
+            meow_iter = quips("Xingu");
         }
     }
 });

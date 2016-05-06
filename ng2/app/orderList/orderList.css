@@ -1,10 +1,165 @@
-.pb120 {padding-bottom:1.2rem;}
-.list-proIndex {
-	display:flex;display:-webkit-flex;flex-flow:row wrap;margin-bottom:.17rem;align-items:stretch;
+.header-orderList {padding-bottom:.2rem;}
+.dflex {height:1rem;font-size:.26rem;padding:0 .2rem;align-items: center;}
+.switchAccount {border:.01rem solid #fff;height:.52rem;line-height:.52rem;border-radius:.04rem;width:1.36rem;text-align:center;}
+.orderList-main {
+  float: left;
+  width: 100%;
+  margin-bottom: 70px;
 }
-.list-proIndex li {
-	box-sizing:border-box;border-left:1px solid #D1D1D1;border-bottom:1px solid #D1D1D1;box-flex:1;width:50%;background-color:#fff;
+
+.orderList {
+  width: 90%;
+  padding: 20px 5% 5px 5%;
+  float: left;
+  background: #fff;
 }
-.list-proIndex li:nth-child(odd){
-	border-left:none;
+
+.orderList dd {
+  width: 50%;
+  float: left;
+  text-align: center;
+  color: #999;
+}
+.orderList-checked {
+background: url(/app/orderList/img/orderList.png) no-repeat;
+background-size: 25px;
+position: absolute;
+top: -12px;
+right: -12px;
+width: 25px;
+height: 25px;
+}
+.arrow-up {
+  display: inline-block;
+  width: 30px;
+  height: 20px;
+  position: absolute;
+  top: 35px;
+  left: 1px;
+  background: url(/app/orderList/img/arrow-up.png) no-repeat center bottom;
+  z-index: 10;
+  background-size: 80%;
+}
+.orderList dd.orderList-on {
+  color: #333;  
+}
+.orderList dd.orderList-on .orderList-checked {
+    background: url(/app/orderList/img/orderList-on.png) no-repeat;
+    background-size: .5rem;
+  }
+
+.orderList h2 {
+  font-size: .32rem;
+  line-height: 30px;
+  color: #999;
+}
+
+.orderList-img {
+  width: 60%;
+  margin: 0 20%;
+  position: relative;
+}
+
+.orderList-img img {
+  width: 100%;
+}
+
+.orderList-text {
+  width: 80%;
+  float: left;
+  padding: 30px 10%;
+  text-align: center;
+  line-height: 30px;
+}
+
+.orderList-text h2 {
+  font-size: .32rem;
+  line-height: 24px;
+  border-bottom: 1px dashed #CCC;
+  padding: 5px;
+}
+
+.orderList-text p {
+  font-size: .32rem;
+  color: #999;
+  line-height: .48rem;
+  padding: .2rem;
+}
+
+.orderList-bottom {
+  width: 100%;
+  float: left;
+  margin-bottom: 10px;
+}
+
+.orderList-reel {
+  width: 90%;
+  padding: 0 5%;
+  height: 50px;
+  line-height: 50px;
+  background: #fff;
+  margin-bottom: 1px;
+  font-size: .26rem;
+}
+
+.orderList-reel i {
+  float: left;
+  display: block;
+  background: url(/images/reel.png) no-repeat left center;
+  background-size: auto 50%;
+  padding-left: 45px;
+}
+
+.orderList-reel span {
+  float: right;
+  display: block;
+  background: url(/app/orderList/img/enter.png) no-repeat right center;
+  background-size: auto 30%;
+  padding-right: 20px;
+  color: #999;
+}
+
+.orderList-money {
+  width: 90%;
+  padding: 0 5%;
+  height: 60px;
+  line-height: 60px;
+  background: #fff;
+  font-size: .32rem;
+}
+
+.orderList-money i {
+  color: #666;
+}
+
+.orderList-money .realPrice, .orderList-money .basicPrice.realPriceWy {
+  color: #ffb929;
+  font-size: .24rem;
+  margin-right: 5px;
+  text-decoration: none;
+}
+
+.orderList-money .basicPrice {
+  color: #b8b8bf;
+  font-size: .26rem;
+  text-decoration: line-through;
+}
+
+.orderList-money .subOrder {
+  margin-top: 10px;
+  padding: 0 20px;
+  height: 40px;
+  border: 0;
+  background: #6796e4;
+  color: #fff;
+  font-size: .32rem;
+  border-radius: 3px;
+  float: right;
+}
+
+.orderList-agreement {
+  text-align:center;
+  margin: .8rem auto .2rem;
+  line-height: .5rem;
+  font-size: .26rem;
 }

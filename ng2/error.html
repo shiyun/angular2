@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <base href="/">
+    <title><%=title%></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+	<meta content="telephone=no,email=no" name="format-detection">
+    <link rel="stylesheet" href="/styles.css">
+	<script>
+		(function(doc, win) {
+			var docEl = doc.documentElement,
+			isIOS = navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+			dpr = isIOS ? Math.min(win.devicePixelRatio, 3) : 1,
+			dpr = window.top === window.self ? dpr : 1, //被iframe引用时，禁止缩放
+			resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+			docEl.dataset.dpr = dpr;
+			var recalc = function() {
+				var width = docEl.clientWidth;
+				if (width / dpr > 640) {
+					width = 640 * dpr;
+				}
+				docEl.dataset.width = width
+				docEl.dataset.percent = 100 * (width / 640);
+				docEl.style.fontSize = 100 * (width / 640) + 'px';
+			};
+			recalc()
+			if (!doc.addEventListener) return;
+			win.addEventListener(resizeEvt, recalc, false);
+		})(document, window);		
+	</script>
+	<style>
+		.error {margin:0 .2rem;border-radius:.06rem;background-color:rgba(150,150,150, .6);border:1px solid #ff0;line-height:4rem;text-align:center;}
+	</style>
+  </head>
+  <body>
+    <div class="error">出错</div>
+  </body>
+</html>

@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../hero-detail.component', './login.service', '../footerDown/footerDown.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', '../hero-detail.component', './login.service', '../footerDown/footerDown.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,12 +10,15 @@ System.register(['angular2/core', '../hero-detail.component', './login.service',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, hero_detail_component_1, login_service_1, footerDown_component_1;
+    var core_1, router_1, hero_detail_component_1, login_service_1, footerDown_component_1;
     var LoginComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
             },
             function (hero_detail_component_1_1) {
                 hero_detail_component_1 = hero_detail_component_1_1;
@@ -28,16 +31,23 @@ System.register(['angular2/core', '../hero-detail.component', './login.service',
             }],
         execute: function() {
             LoginComponent = (function () {
-                function LoginComponent(_loginService) {
+                function LoginComponent(_loginService, _router) {
                     this._loginService = _loginService;
+                    this._router = _router;
                 }
                 LoginComponent.prototype.getVeriCode = function (phoneNum) {
                     var data = JSON.stringify({ phone: phoneNum.value, type: 1 });
                     this._loginService.getVeriCode(data).then(function (res) { return console.log(res); });
                 };
                 LoginComponent.prototype.login = function (phoneNum, veriNum) {
+                    var _this = this;
                     var data = JSON.stringify({ phone: phoneNum.value, verifyCode: veriNum.value });
-                    this._loginService.login(data).then(function (res) { return console.log(res); });
+                    this._loginService.login(data).then(function (res) {
+                        if (res.status.code == 1) {
+                            var link = ['OrderList'];
+                            _this._router.navigate(link);
+                        }
+                    });
                 };
                 LoginComponent = __decorate([
                     core_1.Component({
@@ -47,7 +57,7 @@ System.register(['angular2/core', '../hero-detail.component', './login.service',
                         directives: [hero_detail_component_1.HeroDetail, footerDown_component_1.FooterDownComponent],
                         providers: [login_service_1.LoginService]
                     }), 
-                    __metadata('design:paramtypes', [login_service_1.LoginService])
+                    __metadata('design:paramtypes', [login_service_1.LoginService, router_1.Router])
                 ], LoginComponent);
                 return LoginComponent;
             }());

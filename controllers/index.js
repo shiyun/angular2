@@ -5,7 +5,7 @@ function Routes(){
 
 }
 
-Routes.prototype.ng2Ctrl = function(req, res){
+Routes.prototype.ng2Ctrl = function(req, res, next){
 	//this.redirect('/');
 	let _data = {title: '首页', result: jsonFormat.success('消息1')};	
 	res.render('index', _data);

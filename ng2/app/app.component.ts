@@ -7,6 +7,7 @@ import {HeroDetail} from './hero-detail.component';
 import {HeroDetailThree} from './heroThree.component';
 import {LoginComponent} from './Login/login.component';
 import {IndexComponent} from './index/index.component';
+import {OrderListComponent} from './orderList/orderList.component';
 
 const isLogin = false;
 
@@ -21,7 +22,7 @@ const isLogin = false;
     <router-outlet></router-outlet>
     
   `,                                                                                                                                                                                                                                                                    
-  directives: [ROUTER_DIRECTIVES, IndexComponent],
+  directives: [ROUTER_DIRECTIVES],
   providers: [ROUTER_PROVIDERS, HeroService]  
 })
 
@@ -57,6 +58,11 @@ const isLogin = false;
     path: '/ng/heroDetail/:id/:sid',
     name: 'HeroDetailThree',
     component: HeroDetailThree
+  },
+  {
+    path: '/ng/orderList',
+    name: 'OrderList',
+    component: OrderListComponent
   }
 ])
 

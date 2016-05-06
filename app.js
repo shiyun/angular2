@@ -22,18 +22,18 @@ app.set('view engine', 'html');
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
-app.use(session({
-   secret: global.CONFIG.SECRET,
-   name: 'testapp',   //这里的name值得是cookie的name，默认cookie的name是：connect.sid
-   cookie: {maxAge: 80000 },  //设置maxAge是80000ms，即80s后session和相应的cookie失效过期
-   resave: false,
-   saveUninitialized: true,
-}));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'ng2')));
+app.use(session({
+   secret: global.CONFIG.SECRET,
+   name: 'angular2',   //这里的name值得是cookie的name，默认cookie的name是：connect.sid
+   cookie: {maxAge: 1000 * 60 * 60 * 24 },  //设置maxAge是1天，即1天后session和相应的cookie失效过期
+   resave: false,
+   saveUninitialized: true,
+}));
 
 app.use('/', routes);
 app.use('/api', api);
@@ -65,6 +65,7 @@ if (app.get('env') === 'development') {
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error', {
+    title: '出错了',
     message: err.message,
     error: {}
   });
